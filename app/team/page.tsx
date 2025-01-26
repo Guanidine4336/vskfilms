@@ -131,6 +131,8 @@
 //     </div>
 //   );
 // }
+
+"use client"
 import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { Card, CardContent } from "@/components/ui/card";
