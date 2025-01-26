@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Mountain, Youtube, Instagram, Twitter, Facebook } from "lucide-react"
+import {  Youtube, Instagram, Twitter, Facebook } from "lucide-react"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -35,13 +35,22 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-zinc-800 bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/60">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex items-center justify-between h-16">
         <Link href="/" className="flex items-center space-x-2">
-          <Mountain className="h-6 w-6 text-white" />
-          <span className="hidden font-bold text-white sm:inline-block">VSK Films</span>
+          {/* <Mountain className="w-6 h-6 text-white" /> */}
+          <span className="items-center hidden font-bold text-white sm:inline-flex">
+ 
+              <img
+                src="/WHITE.png"  
+                alt="VSK Films icon"
+                className="w-8 h-8 ml-3"  
+              />
+        </span>
+
+
         </Link>
 
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="items-center hidden space-x-8 md:flex">
           {navItems.map((item) => (
             <Link key={item.name} href={item.href} className="text-sm font-medium text-white hover:text-zinc-300">
               {item.name}
@@ -58,19 +67,19 @@ export function SiteHeader() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <link.icon className="h-5 w-5" />
+              <link.icon className="w-5 h-5" />
             </Link>
           ))}
           <Button variant="ghost" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            <Menu className="h-6 w-6 text-white" />
+            <Menu className="w-6 h-6 text-white" />
           </Button>
         </div>
       </div>
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-zinc-800">
-          <div className="space-y-1 px-4 py-3">
+        <div className="border-t md:hidden border-zinc-800">
+          <div className="px-4 py-3 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}

@@ -3,20 +3,18 @@
 // import { cn } from "@/lib/utils"
 // import { motion } from "framer-motion"
 // import type React from "react"
+// import { useMemo } from "react"
 
-// export const BackgroundLines = ({
-//   children,
-//   className,
-//   svgOptions,
-// }: {
-//   children: React.ReactNode
+// export const BackgroundLines: React.FC<{
+//   children?: React.ReactNode
 //   className?: string
 //   svgOptions?: {
 //     duration?: number
+//     pathCount?: number
 //   }
-// }) => {
+// }> = ({ children, className, svgOptions }) => {
 //   return (
-//     <div className={cn("h-[20rem] md:h-screen w-full bg-black", className)}>
+//     <div className={cn("relative h-[20rem] md:h-screen w-full bg-black overflow-hidden", className)}>
 //       <SVG svgOptions={svgOptions} />
 //       {children}
 //     </div>
@@ -24,38 +22,39 @@
 // }
 
 // const pathVariants = {
-//   initial: { strokeDashoffset: 800, strokeDasharray: "50 800" },
+//   initial: { pathLength: 0, opacity: 0 },
 //   animate: {
-//     strokeDashoffset: 0,
-//     strokeDasharray: "20 800",
+//     pathLength: 1,
 //     opacity: [0, 1, 1, 0],
+//     transition: {
+//       pathLength: { type: "spring", duration: 5, bounce: 0 },
+//       opacity: { duration: 2, times: [0, 0.2, 0.8, 1] },
+//     },
 //   },
 // }
 
-// const SVG = ({
-//   svgOptions,
-// }: {
+// const SVG: React.FC<{
 //   svgOptions?: {
 //     duration?: number
+//     pathCount?: number
 //   }
-// }) => {
-//   // ... (previous SVG paths and colors code)
+// }> = ({ svgOptions }) => {
+//   const paths = useMemo(() => generatePaths(svgOptions?.pathCount || 5), [svgOptions?.pathCount])
+//   const colors = useMemo(() => generateColors(paths.length), [paths.length])
+
 //   return (
-//     <motion.svg
+//     <svg
 //       viewBox="0 0 1440 900"
 //       fill="none"
 //       xmlns="http://www.w3.org/2000/svg"
-//       initial={{ opacity: 0 }}
-//       animate={{ opacity: 1 }}
-//       transition={{ duration: 1 }}
 //       className="absolute inset-0 w-full h-full"
 //     >
 //       {paths.map((path, idx) => (
 //         <motion.path
-//           key={`path-first-${idx}`}
+//           key={`path-${idx}`}
 //           d={path}
 //           stroke={colors[idx]}
-//           strokeWidth="2.3"
+//           strokeWidth="2"
 //           strokeLinecap="round"
 //           variants={pathVariants}
 //           initial="initial"
@@ -65,12 +64,41 @@
 //             ease: "linear",
 //             repeat: Number.POSITIVE_INFINITY,
 //             repeatType: "loop",
-//             delay: Math.floor(Math.random() * 10),
-//             repeatDelay: Math.floor(Math.random() * 10 + 2),
+//             delay: Math.random() * 2,
+//             repeatDelay: Math.random() * 2,
 //           }}
 //         />
 //       ))}
-//     </motion.svg>
+//     </svg>
 //   )
+// }
+
+// function generatePaths(count: number): string[] {
+//   const paths: string[] = []
+//   for (let i = 0; i < count; i++) {
+//     const path = `M${Math.random() * 1440},${Math.random() * 900} 
+//                   Q${Math.random() * 1440},${Math.random() * 900} 
+//                    ${Math.random() * 1440},${Math.random() * 900}`
+//     paths.push(path)
+//   }
+//   return paths
+// }
+
+// function generateColors(count: number): string[] {
+//   const colors = [
+//     "#FF6B6B",
+//     "#4ECDC4",
+//     "#45B7D1",
+//     "#FFA07A",
+//     "#98D8C8",
+//     "#F7FFF7",
+//     "#FF9FF3",
+//     "#FFC75F",
+//     "#F9F871",
+//     "#B83B5E",
+//   ]
+//   return Array(count)
+//     .fill(0)
+//     .map(() => colors[Math.floor(Math.random() * colors.length)])
 // }
 

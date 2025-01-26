@@ -145,7 +145,6 @@
 // }
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { Button } from "@/components/ui/button";
 import { HoverEffect } from "@/components/hover-effect";
 import { Timeline } from "@/components/Timeline";
 import { AboutSection } from "@/components/about-section";
@@ -189,7 +188,7 @@ export default function Home() {
     {
       title: "Understanding Your Vision",
       content: (
-        <p className="max-w-xl text-zinc-300">
+        <p className="max-w-xl text-zinc-300 ml-[2cm]">
           We begin by diving deep into your goals, audience, and ideas to lay a solid foundation.
         </p>
       ),
@@ -197,7 +196,7 @@ export default function Home() {
     {
       title: "Conceptualization",
       content: (
-        <p className="max-w-xl text-zinc-300">
+        <p className="max-w-xl text-zinc-300 ml-[2cm]">
           Our creative minds develop unique concepts that align perfectly with your brand's identity.
         </p>
       ),
@@ -205,13 +204,13 @@ export default function Home() {
     {
       title: "Pre-Production",
       content: (
-        <p className="max-w-xl text-zinc-300">Planning every detail meticulously, from storyboarding to scheduling.</p>
+        <p className="max-w-xl text-zinc-300 ml-[2cm]">Planning every detail meticulously, from storyboarding to scheduling.</p>
       ),
     },
     {
       title: "Production",
       content: (
-        <p className="max-w-xl text-zinc-300">
+        <p className="max-w-xl text-zinc-300 ml-[2cm]">
           Lights, camera, action! We bring your ideas to life with state-of-the-art equipment and expertise.
         </p>
       ),
@@ -219,7 +218,7 @@ export default function Home() {
     {
       title: "Post-Production",
       content: (
-        <p className="max-w-xl text-zinc-300">
+        <p className="max-w-xl text-zinc-300 ml-[2cm]">
           Where the magic happens – editing, color grading, sound design, and visual effects.
         </p>
       ),
@@ -227,7 +226,7 @@ export default function Home() {
     {
       title: "Delivery & Feedback",
       content: (
-        <p className="max-w-xl text-zinc-300">
+        <p className="max-w-xl text-zinc-300 ml-[2cm]">
           We deliver your content on time and ensure it meets your expectations perfectly.
         </p>
       ),
@@ -239,29 +238,33 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative h-[80vh] overflow-hidden bg-black">
-          <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-50" />
+        <section className="relative h-screen overflow-hidden bg-black">
+          <div className="absolute inset-0 bg-[url('/back.svg')] bg-cover bg-center opacity-50" />
           <div className="container relative flex flex-col items-center justify-center h-full mx-auto text-center text-white">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-              Welcome to VSK Films
+            {/* <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+              Welcome to <span className="font-bold">VSK</span> Films
             </h1>
             <p className="max-w-3xl mt-4 text-lg text-zinc-300">
               Where creativity meets excellence. We are a passionate team dedicated to crafting exceptional video
               content that inspires, engages, and delivers results.
-            </p>
-            <Button className="mt-8" size="lg">
-              Explore Our Work
-            </Button>
+            </p> */}
           </div>
         </section>
 
         {/* Services Section */}
         <section id="what-we-do" className="relative">
-          <div className="container px-4 py-24 mx-auto">
-            <h2 className="mb-16 text-4xl font-bold text-center text-white">What We Do</h2>
-            <HoverEffect items={services} />
-          </div>
-        </section>
+  <div className="container px-4 py-6 mx-auto"> {/* Added py-6 for some padding */}
+    <h2 className="mb-4 text-4xl font-bold text-center text-white">What We Do</h2> {/* Added a smaller bottom margin */}
+    <div className="flex items-center justify-center mb-4"> {/* Added a small bottom margin */}
+      <p className="max-w-3xl text-lg leading-relaxed text-center md:text-xl text-zinc-300">
+        At <span className="font-bold">VSK Films</span>, we’re driven by the art of storytelling and innovation.
+      </p>
+    </div>
+    <HoverEffect items={services} />
+  </div>
+</section>
+
+
 
         {/* Workflow Section */}
         <section id="workflow">

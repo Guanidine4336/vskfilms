@@ -6,14 +6,14 @@ import { Facebook, Instagram, Twitter, Youtube } from "lucide-react"
 
 export function SiteFooter() {
   return (
-    <footer className="bg-zinc-950 text-white py-20">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer className="py-20 text-white bg-zinc-950">
+      <div className="container grid grid-cols-1 gap-12 px-4 mx-auto md:grid-cols-4">
         <div>
-          <h3 className="text-lg font-semibold mb-6">EDGE'S PRODUCTION</h3>
+          <h3 className="mb-6 text-lg font-semibold">VSK Films</h3>
           <ul className="space-y-4">
             <li>
               <Link href="/about" className="text-zinc-400 hover:text-white">
-                About Edge
+                About VSK Films
               </Link>
             </li>
             <li>
@@ -40,29 +40,29 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold mb-6">ABOUT</h3>
-          <p className="text-zinc-400 mb-6">
-            Lorem ipsum dolor sit amet. Turel upn gravida nibh vel velit auctor aliquet aen sollic conseut ipsutis.
+          <h3 className="mb-6 text-lg font-semibold">ABOUT</h3>
+          <p className="mb-6 text-zinc-400">
+          VSK Films, powered by Kripalu Innovations, creates impactful, story-driven content with a focus on innovation.
           </p>
           <div className="flex space-x-4">
             <Link href="#" className="text-zinc-400 hover:text-white" aria-label="Youtube">
-              <Youtube className="h-6 w-6" />
+              <Youtube className="w-6 h-6" />
             </Link>
             <Link href="#" className="text-zinc-400 hover:text-white" aria-label="Instagram">
-              <Instagram className="h-6 w-6" />
+              <Instagram className="w-6 h-6" />
             </Link>
             <Link href="#" className="text-zinc-400 hover:text-white" aria-label="Twitter">
-              <Twitter className="h-6 w-6" />
+              <Twitter className="w-6 h-6" />
             </Link>
             <Link href="#" className="text-zinc-400 hover:text-white" aria-label="Facebook">
-              <Facebook className="h-6 w-6" />
+              <Facebook className="w-6 h-6" />
             </Link>
           </div>
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold mb-6">NEWS & FILM UPDATES</h3>
-          <p className="text-zinc-400 mb-6">Lorem Ipsner gravida nibh veml auctsi aliquet. Aene sollic conseut.</p>
+          <h3 className="mb-6 text-lg font-semibold">NEWS & FILM UPDATES</h3>
+          <p className="mb-6 text-zinc-400">New projects are in the works at VSK Films! Stay tuned for exciting releases!</p>
           <div className="flex space-x-2">
             <Input type="email" placeholder="Your email" className="bg-zinc-900 border-zinc-800" />
             <Button variant="secondary">
@@ -72,22 +72,72 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold mb-6">FOLLOW ON INSTAGRAM</h3>
-          <div className="grid grid-cols-3 gap-2">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="aspect-square bg-zinc-900 rounded-md overflow-hidden">
-                <Image
-                  src="/placeholder.svg"
-                  alt={`Instagram post ${i + 1}`}
-                  width={100}
-                  height={100}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+  <h3 className="mb-6 text-lg font-semibold">FOLLOW ON INSTAGRAM</h3>
+  <div className="grid grid-cols-3 gap-2">
+    <div className="overflow-hidden rounded-md aspect-square bg-zinc-900">
+      <Image
+        src="/b1.png"
+        alt="Instagram post 1"
+        width={100}
+        height={100}
+        className="object-cover w-full h-full"
+      />
+    </div>
+    <div className="overflow-hidden rounded-md aspect-square bg-zinc-900">
+      <Image
+        src="/w1.png"
+        alt="Instagram post 2"
+        width={100}
+        height={100}
+        className="object-cover w-full h-full"
+      />
+    </div>
+    <div className="overflow-hidden rounded-md aspect-square bg-zinc-900">
+      <Image
+        src="/b2.png"
+        alt="Instagram post 3"
+        width={100}
+        height={100}
+        className="object-cover w-full h-full"
+      />
+    </div>
+    <div className="overflow-hidden rounded-md aspect-square bg-zinc-900">
+      <Image
+        src="w2.png"
+        alt="Instagram post 4"
+        width={100}
+        height={100}
+        className="object-cover w-full h-full"
+      />
+    </div>
+    <div className="overflow-hidden rounded-md aspect-square bg-zinc-900">
+      <Image
+        src="b3.png"
+        alt="Instagram post 5"
+        width={100}
+        height={100}
+        className="object-cover w-full h-full"
+      />
+    </div>
+    <div className="overflow-hidden rounded-md aspect-square bg-zinc-900">
+      <Image
+        src="/w3.png"
+        alt="Instagram post 6"
+        width={100}
+        height={100}
+        className="object-cover w-full h-full"
+      />
+    </div>
+  </div>
+</div>
+
       </div>
+      <p className="py-4 mb-0 text-sm text-center text-zinc-500">
+        &copy; {new Date().getFullYear()} VSK Films. All Rights Reserved.
+      </p>
+
+
+
     </footer>
   )
 }
