@@ -1,19 +1,20 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { BackgroundLines } from "@/components/ui/background-lines"
 
 export function AboutSection() {
   return (
-    <section className="py-24 bg-zinc-900">
-      <div className="container px-4 mx-auto">
+    <BackgroundLines className="relative py-12 md:py-24">
+      <div className="container relative z-10 px-4 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.0001}}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">About Us</h2>
-          <div className="space-y-6 text-lg text-zinc-300">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-6 md:mb-8">About Us</h2>
+          <div className="space-y-4 md:space-y-6 text-base md:text-lg text-zinc-300">
             <p>
               We are VSK Films Powered by Kripalu Innovations, a production house at heart but much more in spirit.
               Founded on a shared passion for storytelling, our mission is to create meaningful content that not only
@@ -23,7 +24,7 @@ export function AboutSection() {
               With years of experience collaborating with some of the world's most exciting brands, we've built a
               reputation for excellence and creativity.
             </p>
-            <p className="text-xl font-semibold text-white">
+            <p className="text-lg md:text-xl font-semibold text-white">
               Our philosophy is simple: find the extra in the ordinary.
             </p>
             <p>
@@ -33,7 +34,7 @@ export function AboutSection() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </BackgroundLines>
   )
 }
 
